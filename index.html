@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><?= title ?></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <?!= include('stylesheet'); ?>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title"><?= title ?></span>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <? for (var j = 0; j < data[0].length; j++) { ?>
+                <th class="mdl-data-table__cell--non-numeric"><?= data[0][j] ?></th>
+                <? } ?>
+              </tr>
+            </thead>
+            <tbody>
+              <? for (var i = 1; i < data.length; i++) { ?>
+                <? if(data[i][1]){ ?> 
+                <tr>
+                  <? for (var j = 0; j < data[i].length; j++) { ?> 
+                  <td class="mdl-data-table__cell--non-numeric"><?= data[i][j] ?></td>
+                  <? } ?>
+                </tr>
+                <? } ?> 
+              <? } ?>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
